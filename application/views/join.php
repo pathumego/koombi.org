@@ -21,3 +21,19 @@ Join
     </table>
 
 </form>
+
+<form method="post" action="<?php print site_url('join'); ?>" enctype="multipart/form-data">
+
+	<table>
+    
+        <tr> <td>E-mail</td> <td><input type="text" name="user_email" id="user_email" value="" /></td> </tr>
+        <tr> <td>Password</td> <td><input type="password" name="user_pwd" id="user_pwd" value="" /></td> </tr>
+        
+        <tr> 
+        	<td><input type="hidden" name="action" value="sign_in" /></td> 
+        	<td><input type="submit" name="submit_sign_in" id="submit_sign_in" value="Sign In" /></td> 
+        </tr>
+    
+    </table>
+
+</form>

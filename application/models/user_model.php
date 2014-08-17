@@ -36,15 +36,15 @@ class User_model extends CI_Model {
 			return TRUE;
 		}
 		
-	} # (Sign Up)
+	} # (sign_up)
     
 	function sign_in( $submitted_data )
 	{
 		# Count query
 		$query = $this->db->select('COUNT(*) as count', FALSE)
 		->from('tbl_users')
-		->where('email', $submitted_data['user_email'])
-		->where('password', $this->encrypt_pwd($submitted_data['user_pwd']))
+		->where('user_email', $submitted_data['user_email'])
+		->where('user_pwd', $this->encrypt_pwd($submitted_data['user_pwd']))
 		->where('user_status', 2);
 
 		$tmp = $query->get()->result();
@@ -53,8 +53,36 @@ class User_model extends CI_Model {
 		# If valid user with valid login credetials
 		if ( $count > 0 )
 		{
-			# Session starts
-			return TRUE;
+			$query = $this->db->get_where('tbl_users', array('user_email' => $submitted_data['user_email']));
+				
+			foreach ($query->result() as $row) 	
+			{
+				$user_id = $row->user_id;
+				$user_name = $row->user_name;
+				$user_type = $row->user_type;
+				$user_token = $row->user_token;
+				$user_status = $row->user_status;
+			}
+				
+			# session_registration
+			$data = array(
+				'signed_in'  => TRUE,
+				'uid' => $user_id,
+				'uname' => $user_name,
+				'uem' => $submitted_data['user_email'],
+				'utype' => $user_type,
+				'utoken' => $user_token,
+				'ustatus' => $user_status
+			);
+			
+			if ( $this->session->set_userdata($data) )
+			{
+				return TRUE;
+			}
+			else
+			{
+				return FALSE;
+			}
 		}
 		else
 		{
@@ -71,23 +99,6 @@ class User_model extends CI_Model {
 		return TRUE;
 				
 	} # (sign_out)
-	
-	public function is_user()
-
-	{
-		if ( ($this->is_signed_in()) && ($this->session->userdata('utype')=='user') )
-		{
-			return TRUE;
-		}
-	} # (is_user)
-	
-	public function is_admin()
-	{
-		if ( ($this->is_signed_in()) && ($this->session->userdata('utype')=='admin') )
-		{
-			return TRUE;
-		}
-	} # (is_admin)
 	
 	public function is_signed_in()
 	{	
@@ -114,12 +125,6 @@ class User_model extends CI_Model {
 		return md5($user_pwd);
 		
 	} # (encrypt_pwd)
-	
-	function verify( $token )
-	{		
-		//
-		
-	} # (verify)
 }
 
 // EOF.
