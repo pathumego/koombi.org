@@ -4,17 +4,12 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		# Load Project Model
-		$this->load->model('project_model');
+		// Page attributes
+		$data['page'] = 'public/home';
 		
-		# Page attributes
-		$data['page'] = 'home';
-		
-		$data['activeProjects'] = $this->project_model->getActiveProjects();
-		
-		# Load the page templates
+		// Load the page templates
 		$this->load->vars($data);	
-		$this->load->view('template');
+		$this->load->view('public/template');
 		
 	} # (index)
 	

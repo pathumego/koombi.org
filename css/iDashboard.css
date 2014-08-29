@@ -1,0 +1,36 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+body, div, ul, li {margin:0; padding:0;}
+h1, h2, h3, h4, h5 {margin:0; padding:0;}
+
+.iContent {padding:10px;}
+
+div.iWrapper {font-family: 'Roboto', sans-serif; font-size:14px;}
+
+div.iMainHeader {background:#E2DBDB; height:50px; padding:10px 10px 0 10px;}
+div.iMainHeader h1 {font-size:24px; color:#775C5C;}
+
+div.iSecHeader {height:40px; padding:10px 10px 0 10px; border-bottom:1px solid #ccc;}
+div.iSecHeader h2 {color:rgb(206, 47, 47);}
+
+div.iLeft {background:#999; float:left; width:0%; display:none;}
+div.iMain {float:left; width:70%;}
+div.iRight {background:#E2DBDB; float:right; width:30%;}
+
+div.iBreadcrumb {}
+div.iBreadcrumb ul {margin:0; padding:0; list-style:none;}
+div.iBreadcrumb ul li {display:inline; margin:0; padding:0; cursor:pointer; letter-spacing:1px; font-size:10px; color:rgb(156, 79, 187); text-transform:uppercase; font-weight:bold;}
+div.iBreadcrumb ul li:after {content:' »';}
+div.iBreadcrumb ul li:last-child:after {content:'';}
+div.iBreadcrumb ul li:last-child {color:#666060;}
+
+ul.iHomeTiles {margin: 15px 0 15px 0; padding: 0;}
+ul.iHomeTiles li {float: left; margin: 0 0 15px 0; padding: 10px; list-style: none; cursor: pointer; width: 130px; height: 90px;}
+ul.iHomeTiles li:hover {background:#F1EBEB;}
+ul.iHomeTiles li h4 {margin: 2px 0; padding: 0; text-align: center; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: rgb(66, 97, 194);}
+ul.iHomeTiles li p {margin: 0; padding: 0; text-align: center; font-size: 13px; color: rgb(37, 32, 32); letter-spacing: 1px;}
+
+div.iFooter {border-top:1px solid #ccc;}
+div.iFooter p {text-align:left; margin:0; padding:0; font-size:11px;}
+
+.clr {clear:both;}

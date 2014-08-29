@@ -36,11 +36,20 @@ define('FOPEN_READ_WRITE_CREATE',				'a+b');
 define('FOPEN_WRITE_CREATE_STRICT',				'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
-/* Custom */
-define('PROJECT_NAME','koombi');
-define('SITE_TITLE','koombi');
-define('SITE_TAG','A crowdfunding platform for Sri Lanka.');
 
+/*
+USER DEFINED
+*/
+define('SITE_TITLE','SITE TITLE');
+define('TAGLINE','SITE TAGLINE');
+
+define('APP_NAME','APP NAME');
+
+define('SYSTEM_EMAIL_NOREPLY','noreply@domain.com');
+define('SYSTEM_EMAIL_NOREPLY_NAME','noreply');
+
+define('SYSTEM_EMAIL_ADMIN','admin@domain.com');
+define('SYSTEM_EMAIL_ADMIN_NAME','admin');
 
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

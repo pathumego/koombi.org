@@ -4,16 +4,17 @@ class User extends CI_Controller {
 
 	public function index()
 	{
-		# is_signed_in
-		if ( ! $this->user_model->is_signed_in() ) { redirect('join'); }
+		if ( ! $this->user_model->is_authenticated_user() ) { redirect('sign_in'); }
 		
-		# Page attributes
-		$data['page'] = 'user';
+		// Page attributes
+		$data['page'] = 'user/home';
 		
-		# Load the page templates
-		$this->load->vars($data);	
-		$this->load->view('template');
-	}
+		// Load the page template
+		$this->load->vars($data);
+		$this->load->view('user/template');	
+	
+	} # (index)
+	
 }
 
 // EOF.
